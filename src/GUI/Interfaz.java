@@ -5,15 +5,22 @@
  */
 package GUI;
 
+import memoriavirtual.MemoriaVirtual;
+import memoriavirtual.Pagina;
+
 /**
  *
  * @author aleja
  */
 public class Interfaz extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Interfaz
-     */
+    private int Nmaxpag;
+    private MemoriaVirtual MemoriaVirtual;
+    String[] Aux=new String[Nmaxpag];
+    Pagina[] AuxP=new Pagina[Nmaxpag];
+    Pagina[] AuxS;
+    int IDProceso=0, NroPagC;
+    
     public Interfaz() {
         initComponents();
     }
@@ -27,6 +34,8 @@ public class Interfaz extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
         Titulo = new javax.swing.JLabel();
         Titulo_Numero_de_paginas = new javax.swing.JLabel();
         Numero_de_Paginas_MP = new javax.swing.JTextField();
@@ -39,19 +48,30 @@ public class Interfaz extends javax.swing.JFrame {
         Pagina_Ejecutando = new javax.swing.JTextField();
         Titulo_Memoria_Principal = new javax.swing.JLabel();
         Titulo_Almacenamineto_Secundario = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        Memoria_Principal = new javax.swing.JTextArea();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        Almacenamiento_Secundario = new javax.swing.JTextArea();
         Opciones_Procesos = new javax.swing.JComboBox<>();
         Titulo_Ejecutar_Proceso = new javax.swing.JLabel();
         Ejecutar = new javax.swing.JButton();
-        Titulo_Crear_Proceso = new javax.swing.JLabel();
+        Titulo_Eliminar_Proceso = new javax.swing.JLabel();
         Titulo_Paginas_Proceso_Crear = new javax.swing.JLabel();
         Paginas_Proceso_Crear = new javax.swing.JTextField();
         Titulo_Orden_Proceso_Crear = new javax.swing.JLabel();
         Orden_Proceso_Crear = new javax.swing.JTextField();
         Crear = new javax.swing.JButton();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        AlmacenamientoSecundario = new javax.swing.JList<>();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        MemoriaPrincipal = new javax.swing.JList<>();
+        Titulo_Crear_Proceso1 = new javax.swing.JLabel();
+        Titulo_Proceso_Eliminar = new javax.swing.JLabel();
+        Proceso_Eliminar = new javax.swing.JTextField();
+        Eliminar = new javax.swing.JButton();
+
+        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane3.setViewportView(jList1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -107,15 +127,6 @@ public class Interfaz extends javax.swing.JFrame {
         Titulo_Almacenamineto_Secundario.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         Titulo_Almacenamineto_Secundario.setText("Alacenamiento Secundario");
 
-        Memoria_Principal.setColumns(20);
-        Memoria_Principal.setRows(5);
-        jScrollPane2.setViewportView(Memoria_Principal);
-
-        Almacenamiento_Secundario.setColumns(20);
-        Almacenamiento_Secundario.setRows(5);
-        jScrollPane1.setViewportView(Almacenamiento_Secundario);
-
-        Opciones_Procesos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         Opciones_Procesos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Opciones_ProcesosActionPerformed(evt);
@@ -132,12 +143,11 @@ public class Interfaz extends javax.swing.JFrame {
             }
         });
 
-        Titulo_Crear_Proceso.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        Titulo_Crear_Proceso.setText("Crear Proceso");
+        Titulo_Eliminar_Proceso.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        Titulo_Eliminar_Proceso.setText("Eliminar Proceso");
 
         Titulo_Paginas_Proceso_Crear.setText("Páginas:");
 
-        Paginas_Proceso_Crear.setText(" ");
         Paginas_Proceso_Crear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Paginas_Proceso_CrearActionPerformed(evt);
@@ -154,23 +164,55 @@ public class Interfaz extends javax.swing.JFrame {
         });
 
         Crear.setText("Crear");
+        Crear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CrearActionPerformed(evt);
+            }
+        });
+
+        jScrollPane4.setViewportView(AlmacenamientoSecundario);
+
+        jScrollPane5.setViewportView(MemoriaPrincipal);
+
+        Titulo_Crear_Proceso1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        Titulo_Crear_Proceso1.setText("Crear Proceso");
+
+        Titulo_Proceso_Eliminar.setText("Proceso:");
+
+        Proceso_Eliminar.setText(" ");
+        Proceso_Eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Proceso_EliminarActionPerformed(evt);
+            }
+        });
+
+        Eliminar.setText("Crear");
+        Eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EliminarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(Titulo_Almacenamineto_Secundario)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(Titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Titulo_Numero_de_paginas, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(Titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Titulo_Numero_de_paginas, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(25, 25, 25)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(22, 22, 22)
+                                        .addComponent(Titulo_Procesador))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(Titulo_Pagina_Ejecutando)
                                         .addGap(18, 18, 18)
@@ -186,7 +228,6 @@ public class Interfaz extends javax.swing.JFrame {
                                                 .addComponent(Opciones_Procesos, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(27, 27, 27)
                                                 .addComponent(Ejecutar, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(Titulo_Crear_Proceso)
                                             .addComponent(Titulo_Ejecutar_Proceso, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -199,28 +240,42 @@ public class Interfaz extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(19, 19, 19)
                                         .addComponent(Crear)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(37, 37, 37))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(22, 22, 22)
-                                .addComponent(Titulo_Procesador)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(Titulo_Memoria_Principal)
-                                .addGap(66, 66, 66)))))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(Numero_de_Paginas_MP, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(Iniciar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Parar))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(Titulo_Memoria_Principal)
+                                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(90, 90, 90)
+                                        .addComponent(Titulo_Eliminar_Proceso)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(Eliminar)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(Titulo_Proceso_Eliminar)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(Proceso_Eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(76, 76, 76)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Titulo_Almacenamineto_Secundario)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(28, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(Numero_de_Paginas_MP, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(Iniciar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Parar))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(31, 31, 31)
+                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(48, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(46, 46, 46)
+                    .addComponent(Titulo_Crear_Proceso1)
+                    .addContainerGap(601, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -236,9 +291,27 @@ public class Interfaz extends javax.swing.JFrame {
                             .addComponent(Iniciar)
                             .addComponent(Numero_de_Paginas_MP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Parar))))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
+                        .addGap(0, 3, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Titulo_Memoria_Principal)
+                            .addComponent(Titulo_Almacenamineto_Secundario))
+                        .addGap(27, 27, 27)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(47, 47, 47)
+                        .addComponent(Titulo_Eliminar_Proceso)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Titulo_Proceso_Eliminar)
+                            .addComponent(Proceso_Eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(Eliminar)
+                        .addGap(42, 42, 42))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(Ejecutar)
                             .addGroup(layout.createSequentialGroup()
@@ -255,9 +328,7 @@ public class Interfaz extends javax.swing.JFrame {
                                 .addComponent(Titulo_Ejecutar_Proceso)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(Opciones_Procesos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(36, 36, 36)
-                        .addComponent(Titulo_Crear_Proceso)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(65, 65, 65)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Paginas_Proceso_Crear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Titulo_Paginas_Proceso_Crear))
@@ -267,19 +338,12 @@ public class Interfaz extends javax.swing.JFrame {
                             .addComponent(Orden_Proceso_Crear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(Crear)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(Titulo_Almacenamineto_Secundario)
-                                .addGap(18, 18, 18)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(Titulo_Memoria_Principal)
-                                .addGap(18, 18, 18)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 52, Short.MAX_VALUE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(387, Short.MAX_VALUE)
+                    .addComponent(Titulo_Crear_Proceso1)
+                    .addGap(176, 176, 176)))
         );
 
         pack();
@@ -290,19 +354,13 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_Numero_de_Paginas_MPActionPerformed
 
     private void IniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IniciarActionPerformed
-        String Npag= Numero_de_Paginas_MP.getText();
-        int nroPag=Integer.parseInt(Npag);
-        String Divisiones="---------------------";
-        int i=0;
-        while(i<nroPag){
-            i++;
-            Memoria_Principal.setText("/n");
-            Memoria_Principal.setText(Divisiones);
-        }
+    Nmaxpag= Integer.parseInt(Numero_de_Paginas_MP.getText());
+    MemoriaVirtual=new MemoriaVirtual(Nmaxpag);
+
     }//GEN-LAST:event_IniciarActionPerformed
 
     private void PararActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PararActionPerformed
-        // TODO add your handling code here:
+  System.exit(0);
     }//GEN-LAST:event_PararActionPerformed
 
     private void Proceso_EjecutandoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Proceso_EjecutandoActionPerformed
@@ -318,7 +376,7 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_Opciones_ProcesosActionPerformed
 
     private void EjecutarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EjecutarActionPerformed
-        // TODO add your handling code here:
+     
     }//GEN-LAST:event_EjecutarActionPerformed
 
     private void Paginas_Proceso_CrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Paginas_Proceso_CrearActionPerformed
@@ -329,9 +387,55 @@ public class Interfaz extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_Orden_Proceso_CrearActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void CrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrearActionPerformed
+      System.out.println(Paginas_Proceso_Crear.getText());
+        NroPagC=Integer.parseInt(Paginas_Proceso_Crear.getText());
+        
+      MemoriaVirtual.CrearProceso(NroPagC);
+      this.imprimirMP();
+      this.imprimirMS();
+      this.ActualizarLista();
+      
+    }//GEN-LAST:event_CrearActionPerformed
+
+    private void Proceso_EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Proceso_EliminarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Proceso_EliminarActionPerformed
+
+    private void EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EliminarActionPerformed
+
+    public void imprimirMS(){
+        
+        
+    
+}
+    
+    public void imprimirMP(){
+        
+        
+    AuxP=MemoriaVirtual.getPaginasMP();
+    for(int i=0;i<Nmaxpag;i++){
+        if(AuxP[i]==null){
+           Aux[i]="Vacio"; 
+        }else{
+        Aux[i]="Proceso: "+AuxP[i].getProceso()+" Pagina: "+ AuxP[i].getNroPag();    
+        }
+    }
+    MemoriaPrincipal.setListData(Aux);
+}
+    
+    
+    public void ActualizarLista(){
+        int a=0;
+        while(MemoriaVirtual.getListaProcesos().get(a)!=null){
+        Opciones_Procesos.insertItemAt(""+MemoriaVirtual.getListaProcesos().get(a).getNroProceso(),a);
+        a++;
+        }
+    }
+    
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -365,11 +469,12 @@ public class Interfaz extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextArea Almacenamiento_Secundario;
+    private javax.swing.JList<String> AlmacenamientoSecundario;
     private javax.swing.JButton Crear;
     private javax.swing.JButton Ejecutar;
+    private javax.swing.JButton Eliminar;
     private javax.swing.JButton Iniciar;
-    private javax.swing.JTextArea Memoria_Principal;
+    private javax.swing.JList<String> MemoriaPrincipal;
     private javax.swing.JTextField Numero_de_Paginas_MP;
     private javax.swing.JComboBox<String> Opciones_Procesos;
     private javax.swing.JTextField Orden_Proceso_Crear;
@@ -377,10 +482,12 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JTextField Paginas_Proceso_Crear;
     private javax.swing.JButton Parar;
     private javax.swing.JTextField Proceso_Ejecutando;
+    private javax.swing.JTextField Proceso_Eliminar;
     private javax.swing.JLabel Titulo;
     private javax.swing.JLabel Titulo_Almacenamineto_Secundario;
-    private javax.swing.JLabel Titulo_Crear_Proceso;
+    private javax.swing.JLabel Titulo_Crear_Proceso1;
     private javax.swing.JLabel Titulo_Ejecutar_Proceso;
+    private javax.swing.JLabel Titulo_Eliminar_Proceso;
     private javax.swing.JLabel Titulo_Memoria_Principal;
     private javax.swing.JLabel Titulo_Numero_de_paginas;
     private javax.swing.JLabel Titulo_Orden_Proceso_Crear;
@@ -388,7 +495,10 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel Titulo_Paginas_Proceso_Crear;
     private javax.swing.JLabel Titulo_Procesador;
     private javax.swing.JLabel Titulo_Proceso_Ejecutando;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel Titulo_Proceso_Eliminar;
+    private javax.swing.JList<String> jList1;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     // End of variables declaration//GEN-END:variables
 }
