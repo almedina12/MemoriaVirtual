@@ -10,6 +10,7 @@ package memoriavirtual;
 public class Pagina {
  private int NroPag;
  private int proceso;
+ private int VecesUtilizado=0;
 
     public Pagina() {
     }
@@ -33,6 +34,15 @@ public class Pagina {
     public void setProceso(int proceso) {
         this.proceso = proceso;
     }
+    
+    public void AumentarVecesUtilizado(){
+        VecesUtilizado++;
+    }
+
+    public int getVecesUtilizado() {
+        return VecesUtilizado;
+    }
+    
     
     
 }

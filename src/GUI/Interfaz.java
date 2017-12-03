@@ -5,8 +5,11 @@
  */
 package GUI;
 
+import java.util.ArrayList;
+import javax.swing.JTextField;
 import memoriavirtual.MemoriaVirtual;
 import memoriavirtual.Pagina;
+import memoriavirtual.Proceso;
 
 /**
  *
@@ -15,10 +18,12 @@ import memoriavirtual.Pagina;
 public class Interfaz extends javax.swing.JFrame {
 
     private int Nmaxpag;
+    private ArrayList<Proceso> ListaProcesos;
+    private Ejecucion Ejecucion;
     private MemoriaVirtual MemoriaVirtual;
-    String[] Aux=new String[Nmaxpag];
-    Pagina[] AuxP=new Pagina[Nmaxpag];
-    Pagina[] AuxS;
+    private String[] Aux=new String[Nmaxpag];
+    private Pagina[] AuxP=new Pagina[Nmaxpag];
+    private Pagina[] AuxS;
     int IDProceso=0, NroPagC;
     
     public Interfaz() {
@@ -105,7 +110,7 @@ public class Interfaz extends javax.swing.JFrame {
 
         Titulo_Proceso_Ejecutando.setText("Proceso:");
 
-        Proceso_Ejecutando.setText(" ");
+        Proceso_Ejecutando.setEnabled(false);
         Proceso_Ejecutando.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Proceso_EjecutandoActionPerformed(evt);
@@ -114,7 +119,7 @@ public class Interfaz extends javax.swing.JFrame {
 
         Titulo_Pagina_Ejecutando.setText("Página:");
 
-        Pagina_Ejecutando.setText(" ");
+        Pagina_Ejecutando.setEnabled(false);
         Pagina_Ejecutando.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Pagina_EjecutandoActionPerformed(evt);
@@ -170,8 +175,10 @@ public class Interfaz extends javax.swing.JFrame {
             }
         });
 
+        AlmacenamientoSecundario.setEnabled(false);
         jScrollPane4.setViewportView(AlmacenamientoSecundario);
 
+        MemoriaPrincipal.setEnabled(false);
         jScrollPane5.setViewportView(MemoriaPrincipal);
 
         Titulo_Crear_Proceso1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
@@ -356,6 +363,8 @@ public class Interfaz extends javax.swing.JFrame {
     private void IniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IniciarActionPerformed
     Nmaxpag= Integer.parseInt(Numero_de_Paginas_MP.getText());
     MemoriaVirtual=new MemoriaVirtual(Nmaxpag);
+    Ejecucion=new Ejecucion(Proceso_Ejecutando, Pagina_Ejecutando, MemoriaVirtual);
+    Ejecucion.start();
 
     }//GEN-LAST:event_IniciarActionPerformed
 
@@ -376,7 +385,17 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_Opciones_ProcesosActionPerformed
 
     private void EjecutarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EjecutarActionPerformed
-     
+       int pro=Integer.parseInt(Opciones_Procesos.getSelectedItem().toString());
+       ListaProcesos=MemoriaVirtual.getListaProcesos();
+       Proceso Pro=ListaProcesos.get(pro);
+    
+    
+    
+   
+      Ejecucion.setProceso(Pro);
+       this.imprimirMP();
+      this.imprimirMS();
+      
     }//GEN-LAST:event_EjecutarActionPerformed
 
     private void Paginas_Proceso_CrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Paginas_Proceso_CrearActionPerformed

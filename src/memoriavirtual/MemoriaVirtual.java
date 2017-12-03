@@ -13,8 +13,8 @@ import java.util.ArrayList;
 public class MemoriaVirtual {
 
 private Pagina[] PaginasMP;
-private ArrayList<Pagina> ListaPaginasMS;
- private ArrayList<Proceso> listaProcesos;
+private ArrayList<Pagina> ListaPaginasMS=new ArrayList<>();
+ private ArrayList<Proceso> listaProcesos= new ArrayList<>();
 private int IDProceso=0;
 private int i,j;
 
@@ -67,6 +67,77 @@ public void CrearProceso(int paginas){
     
     
 }
+
+public Pagina InsertarPaginaMP(Pagina Pagina){
+    i=0;
+    boolean SeMetio=false;
+    while(i<PaginasMP.length && !SeMetio){
+    if(PaginasMP[i]==null ){
+        PaginasMP[i]=Pagina;
+        SeMetio=true;
+    }
+    i++;
+    }
+    if(!SeMetio){
+        int Minimo=0;
+        for(int i=0;i<PaginasMP.length;i++){
+            
+            if(PaginasMP[i].getVecesUtilizado()>PaginasMP[Minimo].getVecesUtilizado()){
+                Minimo=i;
+            }
+        }
+        
+        PaginasMP[Minimo]=Pagina;
+        return PaginasMP[Minimo];
+    }else{
+    return null;
+    }
+    }
+
     
+public void InsertarPaginaMS(Pagina Pagina){
+    ListaPaginasMS.add(Pagina);
+}
+
+public void EliminarPaginaMP(Pagina Pagina){
+    for(int i=0;i<PaginasMP.length;i++){
+       if(PaginasMP[i]==Pagina){
+           PaginasMP[i]=null;
+           break;
+       } 
+    }
+}
+public void EliminarPaginaMS(Pagina Pagina){
+    ListaPaginasMS.remove(Pagina);
+}
+
+
+
+public void EliminarPagina(Pagina Pagina){
+    boolean listo=false;
+    for(int i=0;i<PaginasMP.length;i++){
+       if(PaginasMP[i]==Pagina){
+           this.EliminarPaginaMP(Pagina);
+           listo=true;
+           break;
+       } 
+    }
+    if(!listo){
+       this.EliminarPaginaMS(Pagina);
+    }
+}
+
+public void EliminarProceso(Proceso Proceso){
+    for(int i=0;i<Proceso.getPaginas().length;i++){
+        this.EliminarPagina(Proceso.getPaginas()[i]);
+    }
+}
+
+public void CambiarPaginas(Pagina PaginaMP){
+    
+   Pagina PaginaMS=this.InsertarPaginaMP(PaginaMP);
+   this.EliminarPaginaMS(PaginaMP);
+    this.InsertarPaginaMS(PaginaMS);
+}
     
 }
