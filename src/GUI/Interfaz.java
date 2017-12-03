@@ -21,8 +21,8 @@ public class Interfaz extends javax.swing.JFrame {
     private ArrayList<Proceso> ListaProcesos;
     private Ejecucion Ejecucion;
     private MemoriaVirtual MemoriaVirtual;
-    private String[] Aux=new String[Nmaxpag];
-    private Pagina[] AuxP=new Pagina[Nmaxpag];
+    private String[] Aux;
+    private Pagina[] AuxP;
     private Pagina[] AuxS;
     int IDProceso=0, NroPagC;
     
@@ -435,12 +435,18 @@ public class Interfaz extends javax.swing.JFrame {
         
         
     AuxP=MemoriaVirtual.getPaginasMP();
-    for(int i=0;i<Nmaxpag;i++){
+    Aux=new String[AuxP.length];
+    
+    for(int i=0;i< AuxP.length;i++){
         if(AuxP[i]==null){
            Aux[i]="Vacio"; 
+           
         }else{
-        Aux[i]="Proceso: "+AuxP[i].getProceso()+" Pagina: "+ AuxP[i].getNroPag();    
+            
+        Aux[i]="Proceso: "+AuxP[i].getProceso()+" Pagina: "+ AuxP[i].getNroPag(); 
+        
         }
+        
     }
     MemoriaPrincipal.setListData(Aux);
 }
