@@ -5,7 +5,7 @@
  */
 package memoriavirtual;
 
-import GUI.PanelPrincipal;
+
 
 /**
  *

@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -42,7 +49,7 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
                                               <Component id="Opciones_Procesos" min="-2" pref="97" max="-2" attributes="0"/>
                                               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                                               <Component id="Ejecutar" min="-2" pref="82" max="-2" attributes="0"/>
@@ -58,8 +65,8 @@
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="Paginas_Proceso_Crear" min="-2" pref="38" max="-2" attributes="0"/>
-                                          <Component id="Orden_Proceso_Crear" min="-2" pref="128" max="-2" attributes="0"/>
+                                          <Component id="Paginas_Proceso_Crear" alignment="0" min="-2" pref="38" max="-2" attributes="0"/>
+                                          <Component id="Orden_Proceso_Crear" alignment="0" min="-2" pref="128" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
@@ -82,7 +89,7 @@
                   </Group>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <Component id="Numero_de_Paginas_MP" min="-2" pref="34" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="Iniciar" min="-2" max="-2" attributes="0"/>
@@ -92,20 +99,20 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="Titulo_Almacenamineto_Secundario" min="-2" max="-2" attributes="0"/>
-                          <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
+                          <Component id="Titulo_Almacenamineto_Secundario" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jScrollPane1" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="80" max="32767" attributes="0"/>
+              <EmptySpace pref="28" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="Titulo" min="-2" pref="97" max="-2" attributes="0"/>
                   </Group>
@@ -121,24 +128,10 @@
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                      <Component id="Titulo_Memoria_Principal" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jScrollPane2" min="-2" pref="344" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="37" max="32767" attributes="0"/>
-                      <Component id="Titulo_Almacenamineto_Secundario" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" min="-2" pref="344" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="Ejecutar" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
+                          <Component id="Ejecutar" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
                               <Component id="Titulo_Procesador" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -172,17 +165,28 @@
                       <Component id="Crear" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="Titulo_Almacenamineto_Secundario" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jScrollPane1" min="-2" pref="344" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="Titulo_Memoria_Principal" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jScrollPane2" min="-2" pref="344" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="0" pref="52" max="32767" attributes="0"/>
+                  </Group>
               </Group>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="Titulo_Numero_de_paginas">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="N&#xfa;mero de P&#xe1;ginas Memoria Principal."/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="Titulo">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -190,6 +194,16 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Simulaci&#xf3;n AM."/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="Titulo_Numero_de_paginas">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="N&#xfa;mero de P&#xe1;ginas Memoria Principal."/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="Numero_de_Paginas_MP">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Numero_de_Paginas_MPActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="Iniciar">
       <Properties>
@@ -199,25 +213,12 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="IniciarActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="Numero_de_Paginas_MP">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Numero_de_Paginas_MPActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JButton" name="Parar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Parar"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PararActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JTextField" name="Pagina_Ejecutando">
-      <Properties>
-        <Property name="text" type="java.lang.String" value=" "/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Pagina_EjecutandoActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="Titulo_Procesador">
@@ -233,11 +234,6 @@
         <Property name="text" type="java.lang.String" value="Proceso:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="Titulo_Pagina_Ejecutando">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="P&#xe1;gina:"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JTextField" name="Proceso_Ejecutando">
       <Properties>
         <Property name="text" type="java.lang.String" value=" "/>
@@ -246,36 +242,19 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Proceso_EjecutandoActionPerformed"/>
       </Events>
     </Component>
-    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
-      <AuxValues>
-        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-      </AuxValues>
-
-      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-      <SubComponents>
-        <Component class="javax.swing.JTextArea" name="Almacenamiento_Secundario">
-          <Properties>
-            <Property name="columns" type="int" value="20"/>
-            <Property name="rows" type="int" value="5"/>
-          </Properties>
-        </Component>
-      </SubComponents>
-    </Container>
-    <Container class="javax.swing.JScrollPane" name="jScrollPane2">
-      <AuxValues>
-        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-      </AuxValues>
-
-      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-      <SubComponents>
-        <Component class="javax.swing.JTextArea" name="Memoria_Principal">
-          <Properties>
-            <Property name="columns" type="int" value="20"/>
-            <Property name="rows" type="int" value="5"/>
-          </Properties>
-        </Component>
-      </SubComponents>
-    </Container>
+    <Component class="javax.swing.JLabel" name="Titulo_Pagina_Ejecutando">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="P&#xe1;gina:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="Pagina_Ejecutando">
+      <Properties>
+        <Property name="text" type="java.lang.String" value=" "/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Pagina_EjecutandoActionPerformed"/>
+      </Events>
+    </Component>
     <Component class="javax.swing.JLabel" name="Titulo_Memoria_Principal">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -292,14 +271,36 @@
         <Property name="text" type="java.lang.String" value="Alacenamiento Secundario"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="Titulo_Ejecutar_Proceso">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="13" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Ejecutar Proceso"/>
-      </Properties>
-    </Component>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTextArea" name="Memoria_Principal">
+          <Properties>
+            <Property name="columns" type="int" value="20"/>
+            <Property name="rows" type="int" value="5"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTextArea" name="Almacenamiento_Secundario">
+          <Properties>
+            <Property name="columns" type="int" value="20"/>
+            <Property name="rows" type="int" value="5"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
     <Component class="javax.swing.JComboBox" name="Opciones_Procesos">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
@@ -318,6 +319,14 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
+    <Component class="javax.swing.JLabel" name="Titulo_Ejecutar_Proceso">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="13" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Ejecutar Proceso"/>
+      </Properties>
+    </Component>
     <Component class="javax.swing.JButton" name="Ejecutar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Ejecutar"/>
@@ -334,6 +343,11 @@
         <Property name="text" type="java.lang.String" value="Crear Proceso"/>
       </Properties>
     </Component>
+    <Component class="javax.swing.JLabel" name="Titulo_Paginas_Proceso_Crear">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="P&#xe1;ginas:"/>
+      </Properties>
+    </Component>
     <Component class="javax.swing.JTextField" name="Paginas_Proceso_Crear">
       <Properties>
         <Property name="text" type="java.lang.String" value=" "/>
@@ -341,11 +355,6 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Paginas_Proceso_CrearActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="Titulo_Paginas_Proceso_Crear">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="P&#xe1;ginas:"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="Titulo_Orden_Proceso_Crear">
       <Properties>
