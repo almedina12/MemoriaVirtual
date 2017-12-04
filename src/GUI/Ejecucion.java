@@ -8,6 +8,7 @@ package GUI;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JComboBox;
 import javax.swing.JList;
 import javax.swing.JTextField;
 import memoriavirtual.MemoriaVirtual;
@@ -24,14 +25,15 @@ public class Ejecucion extends Thread {
     Proceso Proceso;
     private String[] Aux;
     private Pagina[] AuxP;
-    private Pagina[] AuxS;
+    
     private JList AlmacenamientoSecundario;
     private JList MemoriaPrincipal;
+    private JComboBox Opciones_Procesos;
   
 
 
     public Ejecucion(JTextField Proceso_Ejecutando, JTextField Pagina_Ejecutando, MemoriaVirtual MemoriaVirtual, JList AlmacenamientoSecundario,
-     JList MemoriaPrincipal) {
+     JList MemoriaPrincipal, JComboBox Opciones_Procesos) {
         this.Proceso_Ejecutando = Proceso_Ejecutando;
         this.Pagina_Ejecutando = Pagina_Ejecutando;
         this.MemoriaVirtual=MemoriaVirtual;
@@ -45,7 +47,7 @@ public class Ejecucion extends Thread {
     public void run(){
         while(true){
             try {
-                sleep(1500);
+                sleep(1000);
                         } catch (InterruptedException ex) {
                 Logger.getLogger(Ejecucion.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -53,9 +55,7 @@ public class Ejecucion extends Thread {
             if(HayProceso){
                  
         for(int i=0;i<Proceso.getPaginas().length;i++){
-            if(parar){
-                break;
-            }
+            
             
             //System.out.println("Llegaste");
             
@@ -85,31 +85,43 @@ public class Ejecucion extends Thread {
             this.imprimirMP();
             this.imprimirMS();
             Proceso.getPaginas()[i].AumentarVecesUtilizado();
+            
+            if(parar){
+                break;
+            }
         }
         
         Proceso_Ejecutando.setText("");
             Pagina_Ejecutando.setText("");
-            
-            if(!parar){
-            HayProceso=false;    
-            }else{
-            parar=false;    
+            try {
+                sleep(1000);
+                        } catch (InterruptedException ex) {
+                Logger.getLogger(Ejecucion.class.getName()).log(Level.SEVERE, null, ex);
             }
+            
+        
+        this.imprimirMP();
+            this.imprimirMS();
+            if(!parar){
+          this.MemoriaVirtual.EliminarProceso(Proceso);
+          this.HayProceso=false;
+            }
+            
+             this.imprimirMP();
+            this.imprimirMS();
             
             }
         }
     }
+    
+    
 
     public void setProceso(Proceso Proceso) {
         this.Proceso = Proceso;
-        if(HayProceso){
-            parar=true;
-        }else{
-        
-        
+
         this.HayProceso=true;
             
-        }
+        
         
     }
     
@@ -151,7 +163,21 @@ public class Ejecucion extends Thread {
     }
     MemoriaPrincipal.setListData(Aux);
 }
+
+    public void setParar(boolean parar) {
+        this.parar = parar;
+        this.HayProceso=false;
+    }
     
+    
+    
+        
+        
+    
+
+    public void setOpciones_Procesos(JComboBox Opciones_Procesos) {
+        this.Opciones_Procesos = Opciones_Procesos;
+    }
     
     
     

@@ -59,15 +59,12 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="Titulo" min="-2" pref="258" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="Titulo_Numero_de_paginas" min="-2" pref="231" max="-2" attributes="0"/>
+                              <Component id="Titulo_Numero_de_paginas" min="-2" pref="222" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                                      <Component id="Titulo_Procesador" min="-2" max="-2" attributes="0"/>
-                                  </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="Titulo_Pagina_Ejecutando" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -77,17 +74,6 @@
                                       <Component id="Titulo_Proceso_Ejecutando" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="Proceso_Ejecutando" min="-2" pref="32" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="Opciones_Procesos" min="-2" pref="97" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                                              <Component id="Ejecutar" min="-2" pref="82" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Component id="Titulo_Ejecutar_Proceso" alignment="0" min="-2" pref="124" max="-2" attributes="0"/>
-                                      </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -103,7 +89,28 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                                       <Component id="Crear" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="Crear1" min="-2" max="-2" attributes="0"/>
                                   </Group>
+                                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                                          <Component id="Titulo_Procesador" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="121" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="Opciones_Procesos" min="-2" pref="97" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                                                  <Component id="Ejecutar" min="-2" pref="82" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Component id="Titulo_Ejecutar_Proceso" alignment="0" min="-2" pref="124" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <Component id="Ejecutar1" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
@@ -149,7 +156,7 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="48" max="32767" attributes="0"/>
+              <EmptySpace pref="52" max="32767" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
@@ -178,10 +185,10 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="0" pref="3" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="7" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="Titulo_Memoria_Principal" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="Titulo_Almacenamineto_Secundario" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -217,7 +224,9 @@
                                   <Component id="Titulo_Pagina_Ejecutando" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="Pagina_Ejecutando" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="Ejecutar1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                               <Component id="Titulo_Ejecutar_Proceso" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="Opciones_Procesos" min="-2" max="-2" attributes="0"/>
@@ -234,7 +243,10 @@
                           <Component id="Orden_Proceso_Crear" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="Crear" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="Crear" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Crear1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -260,7 +272,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="Titulo_Numero_de_paginas">
       <Properties>
-        <Property name="text" type="java.lang.String" value="N&#xfa;mero de P&#xe1;ginas Memoria Principal."/>
+        <Property name="text" type="java.lang.String" value="Nro de Marcos de Memoria Principal."/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="Numero_de_Paginas_MP">
@@ -377,6 +389,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="Paginas_Proceso_Crear">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Paginas_Proceso_CrearActionPerformed"/>
       </Events>
@@ -387,6 +402,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="Orden_Proceso_Crear">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Orden_Proceso_CrearActionPerformed"/>
       </Events>
@@ -453,6 +471,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="Proceso_Eliminar">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Proceso_EliminarActionPerformed"/>
       </Events>
@@ -463,6 +484,22 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EliminarActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="Crear1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Crear con Orden"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Crear1ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="Ejecutar1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Interrumpir"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Ejecutar1ActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

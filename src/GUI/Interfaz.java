@@ -70,6 +70,8 @@ public class Interfaz extends javax.swing.JFrame {
         Titulo_Proceso_Eliminar = new javax.swing.JLabel();
         Proceso_Eliminar = new javax.swing.JTextField();
         Eliminar = new javax.swing.JButton();
+        Crear1 = new javax.swing.JButton();
+        Ejecutar1 = new javax.swing.JButton();
 
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -83,7 +85,7 @@ public class Interfaz extends javax.swing.JFrame {
         Titulo.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         Titulo.setText("Simulación AM.");
 
-        Titulo_Numero_de_paginas.setText("Número de Páginas Memoria Principal.");
+        Titulo_Numero_de_paginas.setText("Nro de Marcos de Memoria Principal.");
 
         Numero_de_Paginas_MP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -153,6 +155,7 @@ public class Interfaz extends javax.swing.JFrame {
 
         Titulo_Paginas_Proceso_Crear.setText("Páginas:");
 
+        Paginas_Proceso_Crear.setEnabled(false);
         Paginas_Proceso_Crear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Paginas_Proceso_CrearActionPerformed(evt);
@@ -161,6 +164,7 @@ public class Interfaz extends javax.swing.JFrame {
 
         Titulo_Orden_Proceso_Crear.setText("Orden:");
 
+        Orden_Proceso_Crear.setEnabled(false);
         Orden_Proceso_Crear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Orden_Proceso_CrearActionPerformed(evt);
@@ -185,6 +189,7 @@ public class Interfaz extends javax.swing.JFrame {
 
         Titulo_Proceso_Eliminar.setText("Proceso:");
 
+        Proceso_Eliminar.setEnabled(false);
         Proceso_Eliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Proceso_EliminarActionPerformed(evt);
@@ -195,6 +200,20 @@ public class Interfaz extends javax.swing.JFrame {
         Eliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EliminarActionPerformed(evt);
+            }
+        });
+
+        Crear1.setText("Crear con Orden");
+        Crear1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Crear1ActionPerformed(evt);
+            }
+        });
+
+        Ejecutar1.setText("Interrumpir");
+        Ejecutar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Ejecutar1ActionPerformed(evt);
             }
         });
 
@@ -211,13 +230,11 @@ public class Interfaz extends javax.swing.JFrame {
                                 .addContainerGap()
                                 .addComponent(Titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Titulo_Numero_de_paginas, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(Titulo_Numero_de_paginas, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(25, 25, 25)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(22, 22, 22)
-                                        .addComponent(Titulo_Procesador))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(Titulo_Pagina_Ejecutando)
                                         .addGap(18, 18, 18)
@@ -226,14 +243,6 @@ public class Interfaz extends javax.swing.JFrame {
                                         .addComponent(Titulo_Proceso_Ejecutando)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(Proceso_Ejecutando, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(11, 11, 11)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(Opciones_Procesos, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(27, 27, 27)
-                                                .addComponent(Ejecutar, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(Titulo_Ejecutar_Proceso, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(Titulo_Paginas_Proceso_Crear)
@@ -244,7 +253,23 @@ public class Interfaz extends javax.swing.JFrame {
                                             .addComponent(Orden_Proceso_Crear, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(19, 19, 19)
-                                        .addComponent(Crear)))
+                                        .addComponent(Crear)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(Crear1))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGap(22, 22, 22)
+                                            .addComponent(Titulo_Procesador)
+                                            .addGap(121, 121, 121))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                            .addGap(11, 11, 11)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(layout.createSequentialGroup()
+                                                    .addComponent(Opciones_Procesos, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addGap(27, 27, 27)
+                                                    .addComponent(Ejecutar, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(Titulo_Ejecutar_Proceso, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(Ejecutar1))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -275,7 +300,7 @@ public class Interfaz extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(31, 31, 31)
                                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addContainerGap(52, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(46, 46, 46)
@@ -296,10 +321,10 @@ public class Interfaz extends javax.swing.JFrame {
                             .addComponent(Iniciar)
                             .addComponent(Numero_de_Paginas_MP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Parar))))
-                .addGap(30, 30, 30)
+                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 3, Short.MAX_VALUE)
+                        .addGap(0, 7, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Titulo_Memoria_Principal)
                             .addComponent(Titulo_Almacenamineto_Secundario))
@@ -329,7 +354,9 @@ public class Interfaz extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(Titulo_Pagina_Ejecutando)
                                     .addComponent(Pagina_Ejecutando, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(59, 59, 59)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(Ejecutar1)
+                                .addGap(21, 21, 21)
                                 .addComponent(Titulo_Ejecutar_Proceso)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(Opciones_Procesos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -342,7 +369,9 @@ public class Interfaz extends javax.swing.JFrame {
                             .addComponent(Titulo_Orden_Proceso_Crear)
                             .addComponent(Orden_Proceso_Crear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(Crear)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Crear)
+                            .addComponent(Crear1))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -359,9 +388,11 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_Numero_de_Paginas_MPActionPerformed
 
     private void IniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IniciarActionPerformed
-    Nmaxpag= Integer.parseInt(Numero_de_Paginas_MP.getText());
+    Paginas_Proceso_Crear.setEnabled(true);
+    Orden_Proceso_Crear.setEnabled(true);
+        Nmaxpag= Integer.parseInt(Numero_de_Paginas_MP.getText());
     MemoriaVirtual=new MemoriaVirtual(Nmaxpag);
-    Ejecucion=new Ejecucion(Proceso_Ejecutando, Pagina_Ejecutando, MemoriaVirtual,this.AlmacenamientoSecundario,this.MemoriaPrincipal);
+    Ejecucion=new Ejecucion(Proceso_Ejecutando, Pagina_Ejecutando, MemoriaVirtual,this.AlmacenamientoSecundario,this.MemoriaPrincipal,Opciones_Procesos);
     Ejecucion.start();
 this.imprimirMP();
     }//GEN-LAST:event_IniciarActionPerformed
@@ -383,7 +414,9 @@ this.imprimirMP();
     }//GEN-LAST:event_Opciones_ProcesosActionPerformed
 
     private void EjecutarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EjecutarActionPerformed
-       int pro=Integer.parseInt(Opciones_Procesos.getSelectedItem().toString());
+       if(true){
+        int pro=Integer.parseInt(Opciones_Procesos.getSelectedItem().toString());
+       
        Proceso Pro=null;
        ListaProcesos=MemoriaVirtual.getListaProcesos();
        
@@ -394,12 +427,15 @@ this.imprimirMP();
        }
        
     
-
+this.Ejecucion.setParar(false);
    
       Ejecucion.setProceso(Pro);
+      
+      
        this.imprimirMP();
       this.imprimirMS();
       
+       }
     }//GEN-LAST:event_EjecutarActionPerformed
 
     private void Paginas_Proceso_CrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Paginas_Proceso_CrearActionPerformed
@@ -411,30 +447,19 @@ this.imprimirMP();
     }//GEN-LAST:event_Orden_Proceso_CrearActionPerformed
 
     private void CrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrearActionPerformed
-    
+    Proceso_Eliminar.setEnabled(true);
         NroPagC=Integer.parseInt(Paginas_Proceso_Crear.getText());
         
-       String OrdenString= Orden_Proceso_Crear.getText();
        
-       if(OrdenString!=""){
-       String[] OrdenCasi = OrdenString.split(",");
-       int[] Orden = new int[OrdenCasi.length];
-       
-       for(int i = 0; i < OrdenCasi.length; i++) {
-    Orden[i] = Integer.parseInt(OrdenCasi[i]);
-        }
-       
-           MemoriaVirtual.CrearProceso(NroPagC,Orden);
-       }else{
         
       MemoriaVirtual.CrearProceso(NroPagC);
-       }
+       
       
       
       this.imprimirMP();
       this.imprimirMS();
+      Ejecucion.setOpciones_Procesos(Opciones_Procesos);
       this.ActualizarLista();
-      
     }//GEN-LAST:event_CrearActionPerformed
 
     private void Proceso_EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Proceso_EliminarActionPerformed
@@ -442,12 +467,50 @@ this.imprimirMP();
     }//GEN-LAST:event_Proceso_EliminarActionPerformed
 
     private void EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarActionPerformed
+
+
+    if(Integer.parseInt(Proceso_Eliminar.getText())>=0){
 int numero=Integer.parseInt(Proceso_Eliminar.getText());
 this.MemoriaVirtual.EliminarProceso(numero);
 this.imprimirMP();
 this.imprimirMS();
 this.ActualizarLista();
+
+if(this.MemoriaVirtual.getPaginasMP().length==0){
+    Proceso_Eliminar.setEnabled(false);
+}
+    }
+
+
     }//GEN-LAST:event_EliminarActionPerformed
+
+    private void Crear1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Crear1ActionPerformed
+    Proceso_Eliminar.setEnabled(true);
+        NroPagC=Integer.parseInt(Paginas_Proceso_Crear.getText());
+        
+       String OrdenString= Orden_Proceso_Crear.getText();
+       
+      
+           
+                    String[] OrdenCasi = OrdenString.split(",");
+                    int[] Orden = new int[OrdenCasi.length];
+
+                    for(int i = 0; i < OrdenCasi.length; i++) {
+                 Orden[i] = Integer.parseInt(OrdenCasi[i]);
+                     }
+       
+           MemoriaVirtual.CrearProceso(NroPagC,Orden);
+       
+      
+      
+      this.imprimirMP();
+      this.imprimirMS();
+      this.ActualizarLista();
+    }//GEN-LAST:event_Crear1ActionPerformed
+
+    private void Ejecutar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ejecutar1ActionPerformed
+     this.Ejecucion.setParar(true);
+    }//GEN-LAST:event_Ejecutar1ActionPerformed
 
     public void imprimirMS(){
     ArrayList<Pagina> ListaMS=this.MemoriaVirtual.getListaPaginasMS();
@@ -535,7 +598,9 @@ this.ActualizarLista();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JList<String> AlmacenamientoSecundario;
     private javax.swing.JButton Crear;
+    private javax.swing.JButton Crear1;
     private javax.swing.JButton Ejecutar;
+    private javax.swing.JButton Ejecutar1;
     private javax.swing.JButton Eliminar;
     private javax.swing.JButton Iniciar;
     private javax.swing.JList<String> MemoriaPrincipal;
