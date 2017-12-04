@@ -186,14 +186,13 @@ public class Interfaz extends javax.swing.JFrame {
 
         Titulo_Proceso_Eliminar.setText("Proceso:");
 
-        Proceso_Eliminar.setText(" ");
         Proceso_Eliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Proceso_EliminarActionPerformed(evt);
             }
         });
 
-        Eliminar.setText("Crear");
+        Eliminar.setText("Eliminar");
         Eliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EliminarActionPerformed(evt);
@@ -365,7 +364,7 @@ public class Interfaz extends javax.swing.JFrame {
     MemoriaVirtual=new MemoriaVirtual(Nmaxpag);
     Ejecucion=new Ejecucion(Proceso_Ejecutando, Pagina_Ejecutando, MemoriaVirtual);
     Ejecucion.start();
-
+this.imprimirMP();
     }//GEN-LAST:event_IniciarActionPerformed
 
     private void PararActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PararActionPerformed
@@ -422,13 +421,29 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_Proceso_EliminarActionPerformed
 
     private void EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarActionPerformed
-        // TODO add your handling code here:
+int numero=Integer.parseInt(Proceso_Eliminar.getText());
+this.MemoriaVirtual.EliminarProceso(numero);
+this.imprimirMP();
+this.imprimirMS();
     }//GEN-LAST:event_EliminarActionPerformed
 
     public void imprimirMS(){
+    ArrayList<Pagina> ListaMS=this.MemoriaVirtual.getListaPaginasMS();
+    Pagina Pag;
+    Aux=new String[ListaMS.size()];
+    for(int i=0;i< ListaMS.size();i++){
+        Pag=ListaMS.get(i);
+        if(Pag==null){
+           Aux[i]="Vacio"; 
+           
+        }else{
+            
+        Aux[i]="Proceso: "+Pag.getProceso()+" Pagina: "+ Pag.getNroPag(); 
         
+        }
         
-    
+    }
+    this.AlmacenamientoSecundario.setListData(Aux);
 }
     
     public void imprimirMP(){
@@ -453,11 +468,13 @@ public class Interfaz extends javax.swing.JFrame {
     
     
     public void ActualizarLista(){
-        int a=0;
-        while(MemoriaVirtual.getListaProcesos().get(a)!=null){
-        Opciones_Procesos.insertItemAt(""+MemoriaVirtual.getListaProcesos().get(a).getNroProceso(),a);
-        a++;
+        
+        
+        for(int a=0;a<MemoriaVirtual.getListaProcesos().size();a++){
+            Opciones_Procesos.insertItemAt(""+MemoriaVirtual.getListaProcesos().get(a).getNroProceso(),a);
         }
+        
+        
     }
     
     

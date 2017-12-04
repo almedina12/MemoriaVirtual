@@ -59,10 +59,10 @@ public void CrearProceso(int paginas){
     i=0;
     
     while(j<(paginas)){
-        if(ListaPaginasMS.get(i)==null){
-            ListaPaginasMS.add(i,Proceso.getPagina(j));
+        
+            ListaPaginasMS.add(Proceso.getPagina(j));
             j++;
-        }
+        
     }
     
     
@@ -130,6 +130,15 @@ public void EliminarPagina(Pagina Pagina){
 public void EliminarProceso(Proceso Proceso){
     for(int i=0;i<Proceso.getPaginas().length;i++){
         this.EliminarPagina(Proceso.getPaginas()[i]);
+    }
+    listaProcesos.remove(Proceso);
+}
+
+public void EliminarProceso(int numero){
+    for(int i=0;i<this.listaProcesos.size();i++){
+     if(listaProcesos.get(i).getNroProceso()==numero){
+         this.EliminarProceso(listaProcesos.get(i));
+     }
     }
 }
 
