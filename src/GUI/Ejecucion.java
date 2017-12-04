@@ -76,7 +76,7 @@ public class Ejecucion extends Thread {
             this.MemoriaVirtual.InsertarPaginaMP(Proceso.getPaginas()[i]);
             this.imprimirMP();
             this.imprimirMS();
-            
+            Proceso.getPaginas()[i].AumentarVecesUtilizado();
         }
         
         Proceso_Ejecutando.setText("");

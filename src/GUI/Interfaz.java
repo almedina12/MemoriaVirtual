@@ -475,7 +475,7 @@ this.imprimirMS();
     
     public void ActualizarLista(){
         
-        
+        Opciones_Procesos.removeAllItems();
         for(int a=0;a<MemoriaVirtual.getListaProcesos().size();a++){
             Opciones_Procesos.insertItemAt(""+MemoriaVirtual.getListaProcesos().get(a).getNroProceso(),a);
         }

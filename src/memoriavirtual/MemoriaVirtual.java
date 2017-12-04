@@ -82,7 +82,7 @@ public Pagina InsertarPaginaMP(Pagina Pagina){
         int Minimo=0;
         for(int i=0;i<PaginasMP.length;i++){
             
-            if(PaginasMP[i].getVecesUtilizado()>PaginasMP[Minimo].getVecesUtilizado()){
+            if(PaginasMP[i].getVecesUtilizado()<PaginasMP[Minimo].getVecesUtilizado()){
                 Minimo=i;
             }
         }
