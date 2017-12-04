@@ -72,6 +72,31 @@ public void CrearProceso(int paginas){
     
 }
 
+public void CrearProceso(int paginas, int[] Orden){
+    Proceso Proceso=new Proceso(IDProceso,paginas,Orden);
+    listaProcesos.add(Proceso);
+    IDProceso++;
+    
+    i=0;j=0;
+    while(i<PaginasMP.length && j<(paginas)){
+        if(PaginasMP[i]==null){
+            PaginasMP[i]=Proceso.getPagina(j);
+            j++;
+        }
+        i++;
+    }
+    i=0;
+    
+    while(j<(paginas)){
+        
+            ListaPaginasMS.add(Proceso.getPagina(j));
+            j++;
+        
+    }
+    
+}
+
+
 public Pagina InsertarPaginaMP(Pagina Pagina){
     i=0;
     boolean SeMetio=false;

@@ -161,7 +161,6 @@ public class Interfaz extends javax.swing.JFrame {
 
         Titulo_Orden_Proceso_Crear.setText("Orden:");
 
-        Orden_Proceso_Crear.setText(" ");
         Orden_Proceso_Crear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Orden_Proceso_CrearActionPerformed(evt);
@@ -415,7 +414,23 @@ this.imprimirMP();
     
         NroPagC=Integer.parseInt(Paginas_Proceso_Crear.getText());
         
+       String OrdenString= Orden_Proceso_Crear.getText();
+       
+       if(OrdenString!=""){
+       String[] OrdenCasi = OrdenString.split(",");
+       int[] Orden = new int[OrdenCasi.length];
+       
+       for(int i = 0; i < OrdenCasi.length; i++) {
+    Orden[i] = Integer.parseInt(OrdenCasi[i]);
+        }
+       
+           MemoriaVirtual.CrearProceso(NroPagC,Orden);
+       }else{
+        
       MemoriaVirtual.CrearProceso(NroPagC);
+       }
+      
+      
       this.imprimirMP();
       this.imprimirMS();
       this.ActualizarLista();
