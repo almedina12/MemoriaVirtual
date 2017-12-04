@@ -15,10 +15,12 @@ import javafx.scene.Node;
 
 
 
-public class Proceso extends Node{
+public class Proceso {
     private int NroProceso;
     private Pagina[] Paginas;
 
+    
+    
     public Proceso(int NroProceso,int Nro,int[] Orden) {
         this.NroProceso=NroProceso;
         this.Paginas = new Pagina[Nro];
@@ -55,25 +57,7 @@ public class Proceso extends Node{
         return Paginas[Pagina];
     }
 
-    @Override
-    protected NGNode impl_createPeer() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public BaseBounds impl_computeGeomBounds(BaseBounds bounds, BaseTransform tx) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    protected boolean impl_computeContains(double localX, double localY) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Object impl_processMXNode(MXNodeAlgorithm alg, MXNodeAlgorithmContext ctx) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
 
     
 }

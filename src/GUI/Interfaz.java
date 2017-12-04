@@ -393,13 +393,24 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_Numero_de_Paginas_MPActionPerformed
 
     private void IniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IniciarActionPerformed
-    Paginas_Proceso_Crear.setEnabled(true);
+    try {
+        
+         if(!Numero_de_Paginas_MP.getText().isEmpty()&& Integer.parseInt(Numero_de_Paginas_MP.getText())>0){
+        Paginas_Proceso_Crear.setEnabled(true);
     Orden_Proceso_Crear.setEnabled(true);
         Nmaxpag= Integer.parseInt(Numero_de_Paginas_MP.getText());
     MemoriaVirtual=new MemoriaVirtual(Nmaxpag);
     Ejecucion=new Ejecucion(Proceso_Ejecutando, Pagina_Ejecutando, MemoriaVirtual,this.AlmacenamientoSecundario,this.MemoriaPrincipal,Opciones_Procesos);
     Ejecucion.start();
 this.imprimirMP();
+         }} catch (NumberFormatException nfe) {
+              
+            
+    }
+
+        
+       
+    
     }//GEN-LAST:event_IniciarActionPerformed
 
     private void PararActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PararActionPerformed
@@ -419,8 +430,8 @@ this.imprimirMP();
     }//GEN-LAST:event_Opciones_ProcesosActionPerformed
 
     private void EjecutarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EjecutarActionPerformed
-       if(true){
-        int pro=Integer.parseInt(Opciones_Procesos.getSelectedItem().toString());
+       try {
+    int pro=Integer.parseInt(Opciones_Procesos.getSelectedItem().toString());
        
        Proceso Pro=null;
        ListaProcesos=MemoriaVirtual.getListaProcesos();
@@ -429,7 +440,7 @@ this.imprimirMP();
            if(ListaProcesos.get(i).getNroProceso()==pro){
         Pro=ListaProcesos.get(i);       
            }
-       }
+       
        
     
 this.Ejecucion.setParar(false);
@@ -441,6 +452,10 @@ this.Ejecucion.setParar(false);
       this.imprimirMS();
       
        }
+} catch(NullPointerException e) {
+    // do something other
+}
+        
     }//GEN-LAST:event_EjecutarActionPerformed
 
     private void Paginas_Proceso_CrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Paginas_Proceso_CrearActionPerformed
@@ -452,7 +467,8 @@ this.Ejecucion.setParar(false);
     }//GEN-LAST:event_Orden_Proceso_CrearActionPerformed
 
     private void CrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrearActionPerformed
-    Proceso_Eliminar.setEnabled(true);
+    if(!Paginas_Proceso_Crear.getText().isEmpty()&& Integer.parseInt(Paginas_Proceso_Crear.getText())>0){
+        Proceso_Eliminar.setEnabled(true);
         NroPagC=Integer.parseInt(Paginas_Proceso_Crear.getText());
         
        
@@ -465,6 +481,7 @@ this.Ejecucion.setParar(false);
       this.imprimirMS();
       Ejecucion.setOpciones_Procesos(Opciones_Procesos);
       this.ActualizarLista();
+    }
     }//GEN-LAST:event_CrearActionPerformed
 
     private void Proceso_EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Proceso_EliminarActionPerformed
@@ -472,9 +489,16 @@ this.Ejecucion.setParar(false);
     }//GEN-LAST:event_Proceso_EliminarActionPerformed
 
     private void EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarActionPerformed
+boolean estara=false;
+ListaProcesos=this.MemoriaVirtual.getListaProcesos();
+        for(int i=0;i<this.ListaProcesos.size();i++){
+    if(Integer.parseInt(Proceso_Eliminar.getText())==ListaProcesos.get(i).getNroProceso()){
+       estara=true; 
+    }
+}
+        
 
-
-    if(Integer.parseInt(Proceso_Eliminar.getText())>=0){
+    if(estara){
 int numero=Integer.parseInt(Proceso_Eliminar.getText());
 this.MemoriaVirtual.EliminarProceso(numero);
 this.imprimirMP();
@@ -490,7 +514,9 @@ if(this.MemoriaVirtual.getPaginasMP().length==0){
     }//GEN-LAST:event_EliminarActionPerformed
 
     private void Crear1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Crear1ActionPerformed
-    Proceso_Eliminar.setEnabled(true);
+   try {
+       
+        Proceso_Eliminar.setEnabled(true);
         NroPagC=Integer.parseInt(Paginas_Proceso_Crear.getText());
         
        String OrdenString= Orden_Proceso_Crear.getText();
@@ -511,10 +537,25 @@ if(this.MemoriaVirtual.getPaginasMP().length==0){
       this.imprimirMP();
       this.imprimirMS();
       this.ActualizarLista();
+       
+                    } catch (NumberFormatException nfe) {
+              
+            }catch(ArrayIndexOutOfBoundsException exception){
+                
+            }
+
+        
+       
     }//GEN-LAST:event_Crear1ActionPerformed
 
     private void Ejecutar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ejecutar1ActionPerformed
-     this.Ejecucion.setParar(true);
+     try {
+    this.Ejecucion.setParar(true);
+} catch(NullPointerException e) {
+    
+}
+        
+        
     }//GEN-LAST:event_Ejecutar1ActionPerformed
 
     public void imprimirMS(){
