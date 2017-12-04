@@ -362,7 +362,7 @@ public class Interfaz extends javax.swing.JFrame {
     private void IniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IniciarActionPerformed
     Nmaxpag= Integer.parseInt(Numero_de_Paginas_MP.getText());
     MemoriaVirtual=new MemoriaVirtual(Nmaxpag);
-    Ejecucion=new Ejecucion(Proceso_Ejecutando, Pagina_Ejecutando, MemoriaVirtual);
+    Ejecucion=new Ejecucion(Proceso_Ejecutando, Pagina_Ejecutando, MemoriaVirtual,this.AlmacenamientoSecundario,this.MemoriaPrincipal);
     Ejecucion.start();
 this.imprimirMP();
     }//GEN-LAST:event_IniciarActionPerformed
@@ -385,11 +385,17 @@ this.imprimirMP();
 
     private void EjecutarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EjecutarActionPerformed
        int pro=Integer.parseInt(Opciones_Procesos.getSelectedItem().toString());
+       Proceso Pro=null;
        ListaProcesos=MemoriaVirtual.getListaProcesos();
-       Proceso Pro=ListaProcesos.get(pro);
+       
+       for(int i=0;i<ListaProcesos.size();i++){
+           if(ListaProcesos.get(i).getNroProceso()==pro){
+        Pro=ListaProcesos.get(i);       
+           }
+       }
+       
     
-    
-    
+
    
       Ejecucion.setProceso(Pro);
        this.imprimirMP();
@@ -406,7 +412,7 @@ this.imprimirMP();
     }//GEN-LAST:event_Orden_Proceso_CrearActionPerformed
 
     private void CrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrearActionPerformed
-      System.out.println(Paginas_Proceso_Crear.getText());
+    
         NroPagC=Integer.parseInt(Paginas_Proceso_Crear.getText());
         
       MemoriaVirtual.CrearProceso(NroPagC);

@@ -148,5 +148,14 @@ public void CambiarPaginas(Pagina PaginaMP){
    this.EliminarPaginaMS(PaginaMP);
     this.InsertarPaginaMS(PaginaMS);
 }
+
+public boolean EstaEnMP(Pagina pagina){
+    boolean esta=false;
+    for(int i=0;i<this.PaginasMP.length;i++){
+       if(PaginasMP[i]==pagina) 
+           esta=true;
+    }
+    return esta;
+}
     
 }
