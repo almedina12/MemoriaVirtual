@@ -5,7 +5,11 @@
  */
 package memoriavirtual;
 
+import GUI.Ejecucion;
+import static java.lang.Thread.sleep;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 
@@ -86,9 +90,9 @@ public Pagina InsertarPaginaMP(Pagina Pagina){
                 Minimo=i;
             }
         }
-        
+     Pagina ayuda=PaginasMP[Minimo];
         PaginasMP[Minimo]=Pagina;
-        return PaginasMP[Minimo];
+        return ayuda;
     }else{
     return null;
     }
@@ -145,8 +149,14 @@ public void EliminarProceso(int numero){
 public void CambiarPaginas(Pagina PaginaMP){
     
    Pagina PaginaMS=this.InsertarPaginaMP(PaginaMP);
+   
+   
+   
    this.EliminarPaginaMS(PaginaMP);
+   
+   
     this.InsertarPaginaMS(PaginaMS);
+    
 }
 
 public boolean EstaEnMP(Pagina pagina){

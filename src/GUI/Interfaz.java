@@ -431,6 +431,7 @@ int numero=Integer.parseInt(Proceso_Eliminar.getText());
 this.MemoriaVirtual.EliminarProceso(numero);
 this.imprimirMP();
 this.imprimirMS();
+this.ActualizarLista();
     }//GEN-LAST:event_EliminarActionPerformed
 
     public void imprimirMS(){

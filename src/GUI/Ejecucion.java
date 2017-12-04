@@ -58,13 +58,21 @@ public class Ejecucion extends Thread {
             }
             
             //System.out.println("Llegaste");
+            
+            
+            if(!this.MemoriaVirtual.EstaEnMP(Proceso.getPaginas()[i])){
+                
+            this.MemoriaVirtual.CambiarPaginas(Proceso.getPaginas()[i]);
+            }
+            
+            
+            this.imprimirMP();
+            this.imprimirMS();
+  
+            this.MemoriaVirtual.EliminarPaginaMP(Proceso.getPaginas()[i]);
+            
             Proceso_Ejecutando.setText(""+Proceso.getPaginas()[i].getProceso());
             Pagina_Ejecutando.setText(""+Proceso.getPaginas()[i].getNroPag());
-            
-            if(!this.MemoriaVirtual.EstaEnMP(Proceso.getPaginas()[i]))
-            this.MemoriaVirtual.CambiarPaginas(Proceso.getPaginas()[i]);
-            
-            this.MemoriaVirtual.EliminarPaginaMP(Proceso.getPaginas()[i]);
             
             this.imprimirMP();
             this.imprimirMS();
@@ -100,7 +108,7 @@ public class Ejecucion extends Thread {
         
         
         this.HayProceso=true;
-            System.out.println(this.HayProceso);
+            
         }
         
     }
